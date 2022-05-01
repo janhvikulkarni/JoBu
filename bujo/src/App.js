@@ -32,6 +32,7 @@ function App() {
           </Container>
         </Navbar>
       </header>
+      <input type="file"/>
     </div>
   );
 }
