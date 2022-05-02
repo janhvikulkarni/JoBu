@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { Editor } from 'react-draft-wysiwyg';
-import ColorPic from './ColorPic'
 
 const EditorStyledToolbar = () => (
     <Editor
@@ -9,7 +8,7 @@ const EditorStyledToolbar = () => (
       wrapperClassName="demo-wrapper"
       editorClassName="demo-editor-custom"
       toolbar={{
-        options: ['inline', 'blockType', 'fontSize', 'textAlign', 'fontFamily', 'colorPicker'],
+        options: ['inline', 'blockType', 'fontSize', 'textAlign', 'fontFamily'],
         inline: {
           options: ['bold', 'italic'],
           bold: { className: 'demo-option-custom' },
@@ -24,7 +23,6 @@ const EditorStyledToolbar = () => (
           right: { className: 'demo-option-custom' },
         },
         fontFamily: { className: 'demo-option-custom-wide', dropdownClassName: 'demo-dropdown-custom' },
-        colorPicker: { component: ColorPic },
       }}
     />
 );
