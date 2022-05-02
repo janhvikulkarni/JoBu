@@ -25,30 +25,33 @@ const EditorStyledToolbar = () => {
     }
   }
   return (
-    <Editor
-      editorState={editorState}
-      onEditorStateChange={handleEditorChange}
-      toolbarClassName="demo-toolbar-custom"
-      wrapperClassName="demo-wrapper"
-      editorClassName="demo-editor-custom"
-      toolbar={{
-        options: ['inline', 'blockType', 'fontSize', 'textAlign', 'fontFamily'],
-        inline: {
-          options: ['bold', 'italic'],
-          bold: { className: 'demo-option-custom' },
-          italic: { className: 'demo-option-custom' },
-        },
-        blockType: { className: 'demo-option-custom-wide', dropdownClassName: 'demo-dropdown-custom' },
-        fontSize: { className: 'demo-option-custom-medium' },
-        textAlign: {
-          options: ['left', 'center', 'right'],
-          left: { className: 'demo-option-custom' },
-          center: { className: 'demo-option-custom' },
-          right: { className: 'demo-option-custom' },
-        },
-        fontFamily: { className: 'demo-option-custom-wide', dropdownClassName: 'demo-dropdown-custom' },
-      }}
-    />
+      <div style={{width: '400px'}} class="border border-primary">
+        <Editor
+          editorState={editorState}
+          onEditorStateChange={handleEditorChange}
+          toolbarClassName="demo-toolbar-custom"
+          wrapperClassName="demo-wrapper"
+          editorClassName="demo-editor-custom"
+          toolbar={{
+            options: ['inline', 'blockType', 'fontSize', 'textAlign', 'fontFamily'],
+            inline: {
+              options: ['bold', 'italic'],
+              bold: { className: 'demo-option-custom' },
+              italic: { className: 'demo-option-custom' },
+            },
+            blockType: { className: 'demo-option-custom-wide', dropdownClassName: 'demo-dropdown-custom' },
+            fontSize: { className: 'demo-option-custom-medium' },
+            textAlign: {
+              options: ['left', 'center', 'right'],
+              left: { className: 'demo-option-custom' },
+              center: { className: 'demo-option-custom' },
+              right: { className: 'demo-option-custom' },
+            },
+            fontFamily: { className: 'demo-option-custom-wide', dropdownClassName: 'demo-dropdown-custom' },
+          }}
+        />
+      </div>
+    
   )
     }
 

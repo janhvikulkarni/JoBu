@@ -27,7 +27,6 @@ function App() {
 
   return (
     <div className="App">
-      <header>
         <Navbar bg="light" expand="lg">
           <Container>
             <Navbar.Brand>BuJo</Navbar.Brand>
@@ -48,11 +47,14 @@ function App() {
             </Navbar.Collapse>
           </Container>
         </Navbar>
-      </header>
 
-      {
-        showText ? <EditorStyledToolbar /> : null
-      }
+      <Container id="text-container">
+            <div>
+              { showText ? <EditorStyledToolbar /> : null }        
+            </div>          
+      </Container>
+      
+
     </div>
   );
 }
