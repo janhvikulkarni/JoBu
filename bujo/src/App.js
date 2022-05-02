@@ -7,6 +7,8 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import EditorStyledToolbar from './Editor';
 import react, {useState, useEffect} from 'react';
 
+import { DndProvider, useDrag, DragSourceMonitor } from "react-dnd";
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
