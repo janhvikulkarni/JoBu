@@ -5,9 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import EditorStyledToolbar from './Editor';
-import react, {useState, useEffect} from 'react';
-
-import { DndProvider, useDrag, DragSourceMonitor } from "react-dnd";
+import react, {useState} from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -16,6 +14,7 @@ function App() {
   // state: is Editor component shown?
   const [showText, setShowText] = useState(false);
 
+  // function to show/hide Editor component
   let openEditor = () => {
     console.log("openEditor called");
 
@@ -51,9 +50,7 @@ function App() {
         </Navbar>
 
       <Container id="text-container">
-            <div>
-              { showText ? <EditorStyledToolbar /> : null }        
-            </div>          
+        { showText ? <EditorStyledToolbar /> : null }        
       </Container>
       
 
