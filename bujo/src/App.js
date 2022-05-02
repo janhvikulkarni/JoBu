@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import Editor from './Editor';
+import EditorStyledToolbar from './Editor';
 import react, {useState, useEffect} from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,14 +12,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
 
   // state: is Editor component shown?
-  const [editor, setEditor] = useState(false);
+  const [showText, setShowText] = useState(false);
 
   let openEditor = () => {
     console.log("openEditor called");
 
-    return (
-      <EditorStyledToolbar />
-    )
+    if (showText) {
+      setShowText(false);
+    } else {
+      setShowText(true);
+    }
+    
   }
 
   return (
@@ -46,7 +49,10 @@ function App() {
           </Container>
         </Navbar>
       </header>
-      <EditorStyledToolbar />
+
+      {
+        showText ? <EditorStyledToolbar /> : null
+      }
     </div>
   );
 }

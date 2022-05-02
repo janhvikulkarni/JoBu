@@ -5,7 +5,7 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { Editor } from 'react-draft-wysiwyg';
 import DOMPurify from 'dompurify';
 
-const Editor = () => {
+const EditorStyledToolbar = () => {
 
   const [editorState, setEditorState] = useState(
     () => EditorState.createEmpty(),
@@ -52,4 +52,4 @@ const Editor = () => {
   )
     }
 
-  export default Editor;
+  export default EditorStyledToolbar;
