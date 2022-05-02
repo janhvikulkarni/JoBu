@@ -4,11 +4,15 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import EditorStyledToolbar from './Editor';
+import Editor from './Editor';
+import react, {useState, useEffect} from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+
+  // state: is Editor component shown?
+  const [editor, setEditor] = useState(false);
 
   let openEditor = () => {
     console.log("openEditor called");
@@ -17,7 +21,6 @@ function App() {
       <EditorStyledToolbar />
     )
   }
-
 
   return (
     <div className="App">

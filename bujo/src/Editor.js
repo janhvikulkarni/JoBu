@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { Editor } from 'react-draft-wysiwyg';
 
-const EditorStyledToolbar = () => (
+const Editor = () => (
     <Editor
       toolbarClassName="demo-toolbar-custom"
       wrapperClassName="demo-wrapper"
@@ -27,4 +27,4 @@ const EditorStyledToolbar = () => (
     />
 );
 
-  export default EditorStyledToolbar;
+  export default Editor;
