@@ -4,10 +4,21 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import EditorStyledToolbar from './Editor';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+
+  let openEditor = () => {
+    console.log("openEditor called");
+
+    return (
+      <EditorStyledToolbar />
+    )
+  }
+
+
   return (
     <div className="App">
       <header>
@@ -17,7 +28,7 @@ function App() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link>Text</Nav.Link>
+                <Nav.Link onClick={openEditor}>Text</Nav.Link>
                 <NavDropdown title="Decorate" id="decorate-dropdown">
                   <NavDropdown.Item>Sticker</NavDropdown.Item>
                   <NavDropdown.Item>Shape</NavDropdown.Item>
@@ -32,6 +43,7 @@ function App() {
           </Container>
         </Navbar>
       </header>
+      <EditorStyledToolbar />
     </div>
   );
 }
