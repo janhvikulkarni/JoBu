@@ -11,6 +11,7 @@
     "draft-convert": "^2.1.12",
     "draft-js": "^0.11.7",
     "draftjs-to-html": "^0.9.1",
+    "html2canvas": "^1.4.1",
     "konva": "^8.3.6",
     "react": "^18.0.0",
     "react-bootstrap": "^2.3.0",
@@ -20,6 +21,7 @@
     "react-dom": "^18.0.0",
     "react-draft-wysiwyg": "^1.14.7",
     "react-konva": "^18.0.0-0",
+    "react-konva-utils": "^0.3.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },

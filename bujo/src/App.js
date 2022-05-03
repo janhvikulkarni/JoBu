@@ -7,8 +7,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import EditorStyledToolbar from './Editor';
 import react, {useState} from 'react';
 import TextContext from './textbox-context';
-
-import {Stage, Layer, Text} from "react-konva";
+import {Stage, Layer, Text, Image} from "react-konva";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -32,11 +31,6 @@ function App() {
   // parent state: array of textbox contents
   const [textboxes, setTextboxes] = useState([]);
   const textbox_value = { textboxes, setTextboxes };
-
-  // state for dragging text around:
-  /*const [isDragging, setIsDragging] = useState(false);
-  const [x, setX] = useState(50);
-  const [y, setY] = useState(50); */
 
   let startDrag = (item) => {
     console.log("startDrag called");
@@ -81,10 +75,16 @@ function App() {
         <Layer>
           {textboxes.map(item => {
             console.log(item);
-            return(<Text text="Draggable Text" x={item.x} y={item.y} draggable 
-                        onDragStart={(item) => { startDrag(item); }}
-                        onDragEnd={(e) => { stopDrag(e, item); }}
-                    />)
+            return(
+              <Text
+                text={item.html}
+                x={item.x} 
+                y={item.y} 
+                draggable  
+                onDragStart={(item) => { startDrag(item); }}
+                onDragEnd={(e) => { stopDrag(e, item); }}>
+              </Text>
+              )
           })}
         </Layer>
       </Stage> 
