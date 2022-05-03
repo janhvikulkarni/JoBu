@@ -124,6 +124,7 @@ function App() {
                   <Nav.Link onClick={() => setIsOpen(true)}>GIF</Nav.Link>
                   <Nav.Link onClick={() => setAlert(true)}>Video</Nav.Link>
               </NavDropdown>
+              </Nav><Nav className="mr-auto">
               <button onClick={() => setAlert(true)}><Icon.Arrow90degLeft class="nav-bar-btn"/></button>
               <Alert open={isAlert} onClose={() => setAlert(false)}>
                 <h1>Coming soon in Version 2.0!</h1>
