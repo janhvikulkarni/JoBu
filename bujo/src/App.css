@@ -25,6 +25,9 @@
     transform: rotate(360deg);
   }
 }
+.color-nav {
+  background-color: #87BBA2;
+}
 .nav-bar-btn {
   margin-top: 3px;
   height: 1em;

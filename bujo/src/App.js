@@ -104,7 +104,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar bg="light" expand="lg">
+      <Navbar className="color-nav" expand="lg">
         <Container>
           <Navbar.Brand>BuJo</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
