@@ -34,3 +34,7 @@ button {
   border: none;
   background: none;
 }
+#upload {
+  max-height:400px;
+  max-width: fit-content;
+}
