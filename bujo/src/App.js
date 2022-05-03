@@ -13,6 +13,7 @@ import {Stage, Layer, Text, Circle, Rect, Star} from "react-konva";
 import * as Icon from 'react-bootstrap-icons';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Dropdown } from 'bootstrap';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false)
@@ -139,6 +140,10 @@ function App() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      <div className="table-of-contents">
+        <h5>Table of Contents <Icon.CaretDownFill/></h5>
+        <h6>Page 1</h6>
+      </div>
       <TextContext.Provider value={textbox_value}>
         { showEditor ? <EditorStyledToolbar /> : null }
       </TextContext.Provider>
