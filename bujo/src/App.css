@@ -38,3 +38,10 @@ button {
   max-height:400px;
   max-width: fit-content;
 }
+.close {
+  float: right;
+  
+}
+.close:hover {
+  color: red;
+}
