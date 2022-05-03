@@ -121,7 +121,7 @@ function App() {
                   <Modal open={isOpen} onClose={() => setIsOpen(false)}>
                   <input type="file" onChange={handleChange} />
                   </Modal>
-                  <Nav.Link onClick={() => setIsOpen(true)}>Video</Nav.Link>
+                  <Nav.Link onClick={() => setAlert(true)}>Video</Nav.Link>
                   <Nav.Link onClick={() => setIsOpen(true)}>GIF</Nav.Link>
               </NavDropdown>
               <button onClick={() => setAlert(true)}><Icon.Arrow90degLeft class="nav-bar-btn"/></button>
