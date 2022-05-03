@@ -5,12 +5,14 @@ import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import EditorStyledToolbar from './Editor';
-import react, {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
+import Modal from './Modal'
+import FileUploadComponent from './fileUpload.component';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-
+  const [isOpen, setIsOpen] = useState(false)
   // state: is Editor component shown?
   const [showText, setShowText] = useState(false);
 
@@ -40,16 +42,18 @@ function App() {
                   <NavDropdown.Item>Shape</NavDropdown.Item>
                 </NavDropdown>
                 <NavDropdown title="Media" id="media-dropdown">
-                  <NavDropdown.Item>Image</NavDropdown.Item>
-                  <NavDropdown.Item>Video</NavDropdown.Item>
-                  <NavDropdown.Item>GIF</NavDropdown.Item>
+                  <Nav.Link onClick={() => setIsOpen(true)}>Image</Nav.Link>
+                  <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+                  <FileUploadComponent />
+                  </Modal>
+                  <Nav.Link onClick={() => setIsOpen(true)}>Video</Nav.Link>
+                  <Nav.Link onClick={() => setIsOpen(true)}>GIF</Nav.Link>
                 </NavDropdown>
               </Nav>
             </Navbar.Collapse>
           </Container>
         </Navbar>
       </header>
-
       {
         showText ? <EditorStyledToolbar /> : null
       }
