@@ -3,6 +3,8 @@ import './App.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import EditorStyledToolbar from './Editor';
 import React, {useState, useEffect} from 'react';
@@ -140,82 +142,92 @@ function App() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <div className="table-of-contents">
-        <h5>Table of Contents <Icon.CaretDownFill/></h5>
-        <h6>Page 1</h6>
-      </div>
-      <TextContext.Provider value={textbox_value}>
-        { showEditor ? <EditorStyledToolbar /> : null }
-      </TextContext.Provider>
-      <img src={file} id="upload"/>
-      <Stage width={window.innerWidth} height={window.innerHeight}>
-        <Layer>
-          {textboxes.map(item => {
-            console.log(item);
-            return(
-              <Image
-                image={item.canvas}
-                x={item.x} 
-                y={item.y} 
-                draggable  
-                onDragStart={(item) => { startDrag(item); }}
-                onDragEnd={(e) => { stopDrag(e, item); }}>
-              </Image>
-              )
-          })}
-        </Layer>
-        <Layer>
-          {circles.map(item => {
-            console.log(item);
-            return(
-              <Circle
-                x={item.x} 
-                y={item.y} 
-                radius={50}
-                fill="red"
-                draggable  
-                onDragStart={(item) => { startDrag(item); }}
-                onDragEnd={(e) => { stopDrag(e, item); }}>
-              </Circle>
-              )
-          })}
-        </Layer>
-        <Layer>
-          {rectangles.map(item => {
-            console.log(item);
-            return(
-              <Rect
-                x={item.x} 
-                y={item.y} 
-                width={50}
-                height={50}
-                fill="green"
-                draggable  
-                onDragStart={(item) => { startDrag(item); }}
-                onDragEnd={(e) => { stopDrag(e, item); }}>
-              </Rect>
-              )
-          })}
-        </Layer>
-        <Layer>
-          {stars.map(item => {
-            console.log(item);
-            return(
-              <Star
-                x={item.x} 
-                y={item.y} 
-                numPoints={5}
-                innerRadius={20}
-                outerRadius={40}
-                fill="blue"
-                draggable  
-                onDragStart={(item) => { startDrag(item); }}
-                onDragEnd={(e) => { stopDrag(e, item); }}>
-              </Star>
-              )
-          })}
-        </Layer>
-      </Stage> 
+      <Container>
+        <Row>
+          <Col sm={3}>
+            <div className="table-of-contents">
+              <h5>Table of Contents <Icon.CaretDownFill/></h5>
+              <h6>Page 1</h6>
+            </div>
+          </Col>
+          <Col sm={8}>
+            <TextContext.Provider value={textbox_value}>
+              { showEditor ? <EditorStyledToolbar /> : null }
+            </TextContext.Provider>
+            <img src={file} id="upload"/>
+            <Stage width={window.innerWidth} height={window.innerHeight}>
+              <Layer>
+                {textboxes.map(item => {
+                  console.log(item);
+                  return(
+                    <Image
+                      image={item.canvas}
+                      x={item.x} 
+                      y={item.y} 
+                      draggable  
+                      onDragStart={(item) => { startDrag(item); }}
+                      onDragEnd={(e) => { stopDrag(e, item); }}>
+                    </Image>
+                    )
+                })}
+              </Layer>
+              <Layer>
+                {circles.map(item => {
+                  console.log(item);
+                  return(
+                    <Circle
+                      x={item.x} 
+                      y={item.y} 
+                      radius={50}
+                      fill="red"
+                      draggable  
+                      onDragStart={(item) => { startDrag(item); }}
+                      onDragEnd={(e) => { stopDrag(e, item); }}>
+                    </Circle>
+                    )
+                })}
+              </Layer>
+              <Layer>
+                {rectangles.map(item => {
+                  console.log(item);
+                  return(
+                    <Rect
+                      x={item.x} 
+                      y={item.y} 
+                      width={50}
+                      height={50}
+                      fill="green"
+                      draggable  
+                      onDragStart={(item) => { startDrag(item); }}
+                      onDragEnd={(e) => { stopDrag(e, item); }}>
+                    </Rect>
+                    )
+                })}
+              </Layer>
+              <Layer>
+                {stars.map(item => {
+                  console.log(item);
+                  return(
+                    <Star
+                      x={item.x} 
+                      y={item.y} 
+                      numPoints={5}
+                      innerRadius={20}
+                      outerRadius={40}
+                      fill="blue"
+                      draggable  
+                      onDragStart={(item) => { startDrag(item); }}
+                      onDragEnd={(e) => { stopDrag(e, item); }}>
+                    </Star>
+                    )
+                })}
+              </Layer>
+            </Stage> 
+          </Col>
+        </Row>
+        
+      </Container>
+      
     </div>
   );
 }
