@@ -121,13 +121,12 @@ function App() {
                   <Modal open={isOpen} onClose={() => setIsOpen(false)}>
                   <input type="file" accept="image/*"onChange={handleChange} />
                   </Modal>
-                  <Nav.Link onClick={() => setAlert(true)}>Video</Nav.Link>
                   <Nav.Link onClick={() => setIsOpen(true)}>GIF</Nav.Link>
-                  <Nav.Link onClick={() => setIsOpen(true)}>Video</Nav.Link>
+                  <Nav.Link onClick={() => setAlert(true)}>Video</Nav.Link>
               </NavDropdown>
               <button onClick={() => setAlert(true)}><Icon.Arrow90degLeft class="nav-bar-btn"/></button>
               <Alert open={isAlert} onClose={() => setAlert(false)}>
-                <h1>Coming soon in Version 2.0</h1>
+                <h1>Coming soon in Version 2.0!</h1>
                 </Alert>
               <button onClick={() => setAlert(true)}><Icon.Arrow90degRight class="nav-bar-btn"/></button>
               <button onClick={() => setAlert(true)}><Icon.ArrowBarUp class="nav-bar-btn"/></button>
