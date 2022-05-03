@@ -9,7 +9,7 @@ import React, {useState, useEffect} from 'react';
 import Modal from './Modal'
 import FileUploadComponent from './fileUpload.component';
 import TextContext from './textbox-context';
-import {Stage, Layer, Text, Circle, Rect, Star} from "react-konva";
+import {Stage, Layer, Text, Circle, Rect, Star, Image} from "react-konva";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -129,14 +129,14 @@ function App() {
           {textboxes.map(item => {
             console.log(item);
             return(
-              <Text
-                text={item.html}
+              <Image
+                image={item.canvas}
                 x={item.x} 
                 y={item.y} 
                 draggable  
                 onDragStart={(item) => { startDrag(item); }}
                 onDragEnd={(e) => { stopDrag(e, item); }}>
-              </Text>
+              </Image>
               )
           })}
         </Layer>
