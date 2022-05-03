@@ -4,6 +4,8 @@ import { convertToHTML } from 'draft-convert';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { Editor } from 'react-draft-wysiwyg';
 import DOMPurify from 'dompurify';
+import Button from 'react-bootstrap/Button';
+import TextContext from './textbox-context';
 
 const EditorStyledToolbar = () => {
 
@@ -24,9 +26,23 @@ const EditorStyledToolbar = () => {
       __html: DOMPurify.sanitize(html)
     }
   }
+
+  // context provider: textboxes
+  let { textboxes, setTextboxes } = React.useContext(TextContext);
+
+  let onSubmit = () => {
+    console.log("onSubmit called");
+
+    let arr = textboxes;
+    arr.push(convertedContent); // add new textbox content to arr
+
+    setTextboxes([...arr]); // update textboxes
+  }
+
   return (
       <div style={{width: '400px'}} class="border border-primary">
         <Editor
+          draggable
           editorState={editorState}
           onEditorStateChange={handleEditorChange}
           toolbarClassName="demo-toolbar-custom"
@@ -50,6 +66,7 @@ const EditorStyledToolbar = () => {
             fontFamily: { className: 'demo-option-custom-wide', dropdownClassName: 'demo-dropdown-custom' },
           }}
         />
+        <Button onClick={onSubmit}>Submit</Button>
       </div>
     
   )
