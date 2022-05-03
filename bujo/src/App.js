@@ -34,14 +34,20 @@ function App() {
   const textbox_value = { textboxes, setTextboxes };
 
   // state for dragging text around:
-  const [isDragging, setIsDragging] = useState(false);
+  /*const [isDragging, setIsDragging] = useState(false);
   const [x, setX] = useState(50);
-  const [y, setY] = useState(50);
+  const [y, setY] = useState(50); */
 
-  let stopDrag = (e) => {
-    setIsDragging(false);
-    setX(e.target.x());
-    setY(e.target.y());
+  let startDrag = (item) => {
+    console.log("startDrag called");
+    item.isDragging = true;
+  }
+
+  let stopDrag = (e, item) => {
+    console.log("stopDrag called");
+    item.isDragging = false;
+    item.x = e.target.x();
+    item.y = e.target.y();
   }
 
   return (
@@ -75,9 +81,9 @@ function App() {
         <Layer>
           {textboxes.map(item => {
             console.log(item);
-            return(<Text text="Draggable Text" x={x} y={y} draggable 
-                        onDragStart={() => { setIsDragging(true); }}
-                        onDragEnd={(e) => { stopDrag(e); }}
+            return(<Text text="Draggable Text" x={item.x} y={item.y} draggable 
+                        onDragStart={(item) => { startDrag(item); }}
+                        onDragEnd={(e) => { stopDrag(e, item); }}
                     />)
           })}
         </Layer>

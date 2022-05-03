@@ -33,8 +33,14 @@ const EditorStyledToolbar = () => {
   let onSubmit = () => {
     console.log("onSubmit called");
 
+    let obj = {
+      html: convertedContent,
+      isDragging: false,
+      x: 50,
+      y: 50
+    }
     let arr = textboxes;
-    arr.push(convertedContent); // add new textbox content to arr
+    arr.push(obj); // add new textbox info to arr
 
     setTextboxes([...arr]); // update textboxes
   }
