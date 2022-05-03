@@ -11,12 +11,8 @@
     "dompurify": "^2.3.6",
     "draft-convert": "^2.1.12",
     "draft-js": "^0.11.7",
-<<<<<<< HEAD
-    "html5-file-selector": "^2.1.0",
-=======
     "draftjs-to-html": "^0.9.1",
     "konva": "^8.3.6",
->>>>>>> d5362f4d8105a440ad7114659eb42e6a7c4766a6
     "react": "^18.0.0",
     "react-bootstrap": "^2.3.0",
     "react-color": "^2.19.3",
@@ -24,11 +20,8 @@
     "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^18.0.0",
     "react-draft-wysiwyg": "^1.14.7",
-<<<<<<< HEAD
     "react-dropzone-uploader": "^2.11.0",
-=======
     "react-konva": "^18.0.0-0",
->>>>>>> d5362f4d8105a440ad7114659eb42e6a7c4766a6
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
