@@ -117,11 +117,10 @@ function App() {
                 <NavDropdown.Item onClick={addStar}>Star</NavDropdown.Item>
               </NavDropdown>
               <NavDropdown title="Media" id="media-dropdown">
-              <Nav.Link onClick={() => setIsOpen(true)}>Image</Nav.Link>
+              <Nav.Link onClick={() => setIsOpen(true)}>Image/GIF</Nav.Link>
                   <Modal open={isOpen} onClose={() => setIsOpen(false)}>
                   <input type="file" accept="image/*"onChange={handleChange} />
                   </Modal>
-                  <Nav.Link onClick={() => setIsOpen(true)}>GIF</Nav.Link>
                   <Nav.Link onClick={() => setAlert(true)}>Video</Nav.Link>
               </NavDropdown>
               <button onClick={() => setAlert(true)}><Icon.Arrow90degLeft class="nav-bar-btn"/></button>
