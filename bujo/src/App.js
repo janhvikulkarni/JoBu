@@ -8,7 +8,7 @@ import EditorStyledToolbar from './Editor';
 import React, {useState, useEffect} from 'react';
 import Modal from './Modal'
 import TextContext from './textbox-context';
-import {Stage, Layer, Text, Image} from "react-konva";
+import {Stage, Layer, Text, Circle, Rect, Star} from "react-konva";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -39,6 +39,11 @@ function App() {
   const [textboxes, setTextboxes] = useState([]);
   const textbox_value = { textboxes, setTextboxes };
 
+  // states for arrays of decorate items
+  const[circles, setCircles] = useState([]);
+  const[rectangles, setRectangles] = useState([]);
+  const[stars, setStars] = useState([]);
+
   let startDrag = (item) => {
     console.log("startDrag called");
     item.isDragging = true;
@@ -51,6 +56,48 @@ function App() {
     item.y = e.target.y();
   }
 
+  let addCircle = () => {
+    console.log("addCircle called");
+
+    let obj = {
+      isDragging: false,
+      x: 50,
+      y: 50
+    }
+
+    let arr = circles;
+    arr.push(obj);
+    setCircles([...arr]);
+  }
+
+  let addRectangle = () => {
+    console.log("addRectangle called");
+
+    let obj = {
+      isDragging: false,
+      x: 50,
+      y: 50
+    }
+
+    let arr = rectangles;
+    arr.push(obj);
+    setRectangles([...arr]);
+  }
+
+  let addStar = () => {
+    console.log("addStar called");
+
+    let obj = {
+      isDragging: false,
+      x: 50,
+      y: 50
+    }
+
+    let arr = stars;
+    arr.push(obj);
+    setStars([...arr]);
+  }
+
   return (
     <div className="App">
       <Navbar bg="light" expand="lg">
@@ -61,8 +108,9 @@ function App() {
             <Nav className="me-auto">
               <Nav.Link onClick={openEditor}>Text</Nav.Link>
               <NavDropdown title="Decorate" id="decorate-dropdown">
-                <NavDropdown.Item>Sticker</NavDropdown.Item>
-                <NavDropdown.Item>Shape</NavDropdown.Item>
+                <NavDropdown.Item onClick={addCircle}>Circle</NavDropdown.Item>
+                <NavDropdown.Item onClick={addRectangle}>Rectangle</NavDropdown.Item>
+                <NavDropdown.Item onClick={addStar}>Star</NavDropdown.Item>
               </NavDropdown>
               <NavDropdown title="Media" id="media-dropdown">
               <Nav.Link onClick={() => setIsOpen(true)}>Image</Nav.Link>
@@ -93,6 +141,57 @@ function App() {
                 onDragStart={(item) => { startDrag(item); }}
                 onDragEnd={(e) => { stopDrag(e, item); }}>
               </Text>
+              )
+          })}
+        </Layer>
+        <Layer>
+          {circles.map(item => {
+            console.log(item);
+            return(
+              <Circle
+                x={item.x} 
+                y={item.y} 
+                radius={50}
+                fill="red"
+                draggable  
+                onDragStart={(item) => { startDrag(item); }}
+                onDragEnd={(e) => { stopDrag(e, item); }}>
+              </Circle>
+              )
+          })}
+        </Layer>
+        <Layer>
+          {rectangles.map(item => {
+            console.log(item);
+            return(
+              <Rect
+                x={item.x} 
+                y={item.y} 
+                width={50}
+                height={50}
+                fill="green"
+                draggable  
+                onDragStart={(item) => { startDrag(item); }}
+                onDragEnd={(e) => { stopDrag(e, item); }}>
+              </Rect>
+              )
+          })}
+        </Layer>
+        <Layer>
+          {stars.map(item => {
+            console.log(item);
+            return(
+              <Star
+                x={item.x} 
+                y={item.y} 
+                numPoints={5}
+                innerRadius={20}
+                outerRadius={40}
+                fill="blue"
+                draggable  
+                onDragStart={(item) => { startDrag(item); }}
+                onDragEnd={(e) => { stopDrag(e, item); }}>
+              </Star>
               )
           })}
         </Layer>
