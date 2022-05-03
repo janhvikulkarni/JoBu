@@ -7,7 +7,6 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import EditorStyledToolbar from './Editor';
 import React, {useState, useEffect} from 'react';
 import Modal from './Modal'
-import FileUploadComponent from './fileUpload.component';
 import TextContext from './textbox-context';
 import {Stage, Layer, Text, Image} from "react-konva";
 
@@ -17,7 +16,13 @@ function App() {
   const [isOpen, setIsOpen] = useState(false)
   // state: is Editor component shown?
   const [showEditor, setShowEditor] = useState(false);
-
+  const [file, setFile] = useState();
+  function handleChange(e) {
+      console.log(e.target.files);
+      setFile(URL.createObjectURL(e.target.files[0]));
+      setIsOpen(false);
+  }
+  
   // function to show/hide Editor component
   let openEditor = () => {
     console.log("openEditor called");
@@ -62,7 +67,7 @@ function App() {
               <NavDropdown title="Media" id="media-dropdown">
               <Nav.Link onClick={() => setIsOpen(true)}>Image</Nav.Link>
                   <Modal open={isOpen} onClose={() => setIsOpen(false)}>
-                  <FileUploadComponent />
+                  <input type="file" onChange={handleChange} />
                   </Modal>
                   <Nav.Link onClick={() => setIsOpen(true)}>Video</Nav.Link>
                   <Nav.Link onClick={() => setIsOpen(true)}>GIF</Nav.Link>
@@ -71,11 +76,10 @@ function App() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-
       <TextContext.Provider value={textbox_value}>
         { showEditor ? <EditorStyledToolbar /> : null }
       </TextContext.Provider>
-
+      <img src={file} id="upload"/>
       <Stage width={window.innerWidth} height={window.innerHeight}>
         <Layer>
           {textboxes.map(item => {
@@ -93,7 +97,6 @@ function App() {
           })}
         </Layer>
       </Stage> 
-
     </div>
   );
 }
