@@ -100,9 +100,7 @@ function App() {
     setStars([...arr]);
   }
   // Coming Soon Alert
-  // let alert = () => {
-  //   alert("Coming soon in Version 2.0!");
-  // }
+  const [isAlert, setAlert] = useState(false)
 
   return (
     <div className="App">
@@ -123,19 +121,20 @@ function App() {
                   <Modal open={isOpen} onClose={() => setIsOpen(false)}>
                   <input type="file" accept="image/*"onChange={handleChange} />
                   </Modal>
+                  <Nav.Link onClick={() => setAlert(true)}>Video</Nav.Link>
                   <Nav.Link onClick={() => setIsOpen(true)}>GIF</Nav.Link>
                   <Nav.Link onClick={() => setIsOpen(true)}>Video</Nav.Link>
               </NavDropdown>
-              <button onClick={() => setIsOpen(true)}><Icon.Arrow90degLeft class="nav-bar-btn"/></button>
-              <Alert open={isOpen} onClose={() => setIsOpen(false)}>
-                <h1>Coming soon in Version 2.0!</h1>
+              <button onClick={() => setAlert(true)}><Icon.Arrow90degLeft class="nav-bar-btn"/></button>
+              <Alert open={isAlert} onClose={() => setAlert(false)}>
+                <h1>Coming soon in Version 2.0</h1>
                 </Alert>
-              <button><Icon.Arrow90degRight class="nav-bar-btn"/></button>
-              <button><Icon.ArrowBarUp class="nav-bar-btn"/></button>
-              <button><Icon.Book class="nav-bar-btn"/></button>
+              <button onClick={() => setAlert(true)}><Icon.Arrow90degRight class="nav-bar-btn"/></button>
+              <button onClick={() => setAlert(true)}><Icon.ArrowBarUp class="nav-bar-btn"/></button>
+              <button onClick={() => setAlert(true)}><Icon.Book class="nav-bar-btn"/></button>
               <NavDropdown title={<Icon.Person/>}>
-                <NavDropdown.Item>Profile</NavDropdown.Item>
-                <NavDropdown.Item>Sign Out</NavDropdown.Item>
+                <NavDropdown.Item onClick={() => setAlert(true)}>Profile</NavDropdown.Item>
+                <NavDropdown.Item onClick={() => setAlert(true)}>Sign Out</NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
