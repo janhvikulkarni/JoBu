@@ -8,7 +8,6 @@ import EditorStyledToolbar from './Editor';
 import React, {useState, useEffect} from 'react';
 import Modal from './Modal'
 import FileUploadComponent from './fileUpload.component';
-import react, {useState} from 'react';
 import TextContext from './textbox-context';
 
 import {Stage, Layer, Text} from "react-konva";
