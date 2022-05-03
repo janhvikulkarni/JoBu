@@ -7,17 +7,25 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import EditorStyledToolbar from './Editor';
 import React, {useState, useEffect} from 'react';
 import Modal from './Modal'
-import FileUploadComponent from './fileUpload.component';
+import Alert from './Alert'
 import TextContext from './textbox-context';
 import {Stage, Layer, Text, Circle, Rect, Star, Image} from "react-konva";
+import * as Icon from 'react-bootstrap-icons';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Dropdown } from 'bootstrap';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false)
   // state: is Editor component shown?
   const [showEditor, setShowEditor] = useState(false);
-
+  const [file, setFile] = useState();
+  function handleChange(e) {
+      console.log(e.target.files);
+      setFile(URL.createObjectURL(e.target.files[0]));
+      setIsOpen(false);
+  }
+  
   // function to show/hide Editor component
   let openEditor = () => {
     console.log("openEditor called");
@@ -92,10 +100,12 @@ function App() {
     arr.push(obj);
     setStars([...arr]);
   }
+  // Coming Soon Alert
+  const [isAlert, setAlert] = useState(false)
 
   return (
     <div className="App">
-      <Navbar bg="light" expand="lg">
+      <Navbar className="color-nav" expand="lg">
         <Container>
           <Navbar.Brand>BuJo</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -108,22 +118,36 @@ function App() {
                 <NavDropdown.Item onClick={addStar}>Star</NavDropdown.Item>
               </NavDropdown>
               <NavDropdown title="Media" id="media-dropdown">
-              <Nav.Link onClick={() => setIsOpen(true)}>Image</Nav.Link>
+              <Nav.Link onClick={() => setIsOpen(true)}>Image/GIF</Nav.Link>
                   <Modal open={isOpen} onClose={() => setIsOpen(false)}>
-                  <FileUploadComponent />
+                  <input type="file" accept="image/*"onChange={handleChange} />
                   </Modal>
-                  <Nav.Link onClick={() => setIsOpen(true)}>Video</Nav.Link>
-                  <Nav.Link onClick={() => setIsOpen(true)}>GIF</Nav.Link>
+                  <Nav.Link onClick={() => setAlert(true)}>Video</Nav.Link>
+              </NavDropdown>
+              </Nav><Nav className="mr-auto">
+              <button onClick={() => setAlert(true)}><Icon.Arrow90degLeft class="nav-bar-btn"/></button>
+              <Alert open={isAlert} onClose={() => setAlert(false)}>
+                <h1>Coming soon in Version 2.0!</h1>
+                </Alert>
+              <button onClick={() => setAlert(true)}><Icon.Arrow90degRight class="nav-bar-btn"/></button>
+              <button onClick={() => setAlert(true)}><Icon.ArrowBarUp class="nav-bar-btn"/></button>
+              <button onClick={() => setAlert(true)}><Icon.Book class="nav-bar-btn"/></button>
+              <NavDropdown id="personal" title={<Icon.Person />}>
+                <NavDropdown.Item onClick={() => setAlert(true)}>Profile</NavDropdown.Item>
+                <NavDropdown.Item onClick={() => setAlert(true)}>Sign Out</NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-
+      <div className="table-of-contents">
+        <h5>Table of Contents <Icon.CaretDownFill/></h5>
+        <h6>Page 1</h6>
+      </div>
       <TextContext.Provider value={textbox_value}>
         { showEditor ? <EditorStyledToolbar /> : null }
       </TextContext.Provider>
-
+      <img src={file} id="upload"/>
       <Stage width={window.innerWidth} height={window.innerHeight}>
         <Layer>
           {textboxes.map(item => {
@@ -192,7 +216,6 @@ function App() {
           })}
         </Layer>
       </Stage> 
-
     </div>
   );
 }

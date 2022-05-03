@@ -6,6 +6,14 @@
   height: 40vmin;
   pointer-events: none;
 }
+.table-of-contents {
+  border-right: solid 1.5px #87BBA2;
+  float: left;
+  height: 100vh;
+  width: 20vw;
+  text-align: left;
+  padding-left: 30px;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -24,4 +32,30 @@
   to {
     transform: rotate(360deg);
   }
+}
+.color-nav {
+  background-color: #87BBA2;
+}
+.nav-bar-btn {
+  margin-top: 3px;
+  height: 1em;
+  width: 1.5em;
+}
+button {
+  border: none;
+  background: none;
+}
+#personal {
+  margin-top: 1px;
+}
+#upload {
+  max-height:400px;
+  max-width: fit-content;
+}
+.close {
+  float: right;
+  
+}
+.close:hover {
+  color: red;
 }

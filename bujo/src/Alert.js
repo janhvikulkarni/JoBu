@@ -21,7 +21,7 @@ const OVERLAY_STYLES = {
     zIndex: 1000
 }
 
-export default function Modal({open, children, onClose}) {
+export default function Alert({open, children, onClose}) {
     if (!open) return null
 
     return ReactDOM.createPortal(
@@ -29,7 +29,6 @@ export default function Modal({open, children, onClose}) {
         <div style={OVERLAY_STYLES}/>
         <div style={MODAL_STYLES}>
             <button type="button" class="close" aria-label="Close" onClick={onClose}><span aria-hidden="true">&times;</span></button><br/>
-            <br/>
             {children}
         </div>
         </>,
