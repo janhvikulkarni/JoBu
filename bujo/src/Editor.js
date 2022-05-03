@@ -6,7 +6,7 @@ import { Editor } from 'react-draft-wysiwyg';
 import DOMPurify from 'dompurify';
 import Button from 'react-bootstrap/Button';
 import TextContext from './textbox-context';
-import html2canvas from 'html2canvas';
+// import html2canvas from 'html2canvas';
 
 
 const EditorStyledToolbar = () => {
