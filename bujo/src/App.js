@@ -8,7 +8,6 @@ import EditorStyledToolbar from './Editor';
 import React, {useState, useEffect} from 'react';
 import Modal from './Modal'
 import Alert from './Alert'
-import FileUploadComponent from './fileUpload.component';
 import TextContext from './textbox-context';
 import {Stage, Layer, Text, Circle, Rect, Star} from "react-konva";
 import * as Icon from 'react-bootstrap-icons';
