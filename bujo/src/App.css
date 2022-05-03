@@ -26,13 +26,16 @@
   }
 }
 .nav-bar-btn {
-  margin-top: 10px;
+  margin-top: 3px;
   height: 1em;
   width: 1.5em;
 }
 button {
   border: none;
   background: none;
+}
+#personal {
+  margin-top: 1px;
 }
 #upload {
   max-height:400px;

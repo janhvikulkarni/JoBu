@@ -131,7 +131,7 @@ function App() {
               <button onClick={() => setAlert(true)}><Icon.Arrow90degRight class="nav-bar-btn"/></button>
               <button onClick={() => setAlert(true)}><Icon.ArrowBarUp class="nav-bar-btn"/></button>
               <button onClick={() => setAlert(true)}><Icon.Book class="nav-bar-btn"/></button>
-              <NavDropdown title={<Icon.Person/>}>
+              <NavDropdown id="personal" title={<Icon.Person />}>
                 <NavDropdown.Item onClick={() => setAlert(true)}>Profile</NavDropdown.Item>
                 <NavDropdown.Item onClick={() => setAlert(true)}>Sign Out</NavDropdown.Item>
               </NavDropdown>
