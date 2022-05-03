@@ -25,7 +25,15 @@
     transform: rotate(360deg);
   }
 }
-
+.nav-bar-btn {
+  margin-top: 10px;
+  height: 1em;
+  width: 1.5em;
+}
+button {
+  border: none;
+  background: none;
+}
 #upload {
   max-height:400px;
   max-width: fit-content;
