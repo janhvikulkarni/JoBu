@@ -115,10 +115,10 @@ function App() {
               <NavDropdown title="Media" id="media-dropdown">
               <Nav.Link onClick={() => setIsOpen(true)}>Image</Nav.Link>
                   <Modal open={isOpen} onClose={() => setIsOpen(false)}>
-                  <input type="file" onChange={handleChange} />
+                  <input type="file" accept="image/*"onChange={handleChange} />
                   </Modal>
-                  <Nav.Link onClick={() => setIsOpen(true)}>Video</Nav.Link>
                   <Nav.Link onClick={() => setIsOpen(true)}>GIF</Nav.Link>
+                  <Nav.Link onClick={() => setIsOpen(true)}>Video</Nav.Link>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
